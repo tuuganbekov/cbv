@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post list</title>
+</head>
+<body>
+    {% for post in posts %}
+    <div style="border: 1px solid black;">
+        <h4><a href="{% url 'post-detail' pk=post.id %}">{{ post.title }}</a></h4>
+        <a href="{% url 'post-update' pk=post.id %}">Update -> {{post.title}}</a><br>
+        <a href="{% url 'post-delete' pk=post.id %}">Delete -> {{post.title}}</a>
+    </div>
+    {% endfor %}
+    <div>
+        <a href="{% url 'post-create' %}">Create post</a>
+    </div>
+</body>
+</html>
